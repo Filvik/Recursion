@@ -1,9 +1,9 @@
 package org.example;
 
 public class Main {
-    static People Viktor = new People("Viktor", "Filippova", "33");
-    static People Alexandra = new People("Sasha", "Filippova", "33");
-    static People Veronika = new People("Veronika", "Filippova", "5");
+    static People Viktor = new People("Viktor", "Filippova", 33);
+    static People Alexandra = new People("Sasha", "Filippova", 33);
+    static People Veronika = new People("Veronika", "Filippova", 5);
     static PeopleService peopleService = new PeopleService();
 
 

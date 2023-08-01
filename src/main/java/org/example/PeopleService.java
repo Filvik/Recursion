@@ -1,14 +1,20 @@
 package org.example;
 
 public class PeopleService {
-    private People people;
-    private PeopleChild peopleChild;
 
+    /**
+     * Определяет есть ли данный объект с заданными критериями.
+     *
+     * @param people Объект класса People(Объект поиска).
+     * @param peopleChild Объект класса PeopleChild(Критерий поиска).
+     * @return true or false.
+     */
     public boolean people(People people, PeopleChild peopleChild) {
 
         if (peopleChild.getChildren1() == null || peopleChild.getChildren2() == null) {
 
             return switch (peopleChild.getOperation()) {
+
                 case "<" ->
                         (peopleChild.getOperationOperand2().compareTo(getFieldValue(peopleChild.getOperationOperand1(), people)) < 0);
                 case ">" ->
@@ -19,6 +25,7 @@ public class PeopleService {
             };
         } else {
             switch (peopleChild.getOperation()) {
+
                 case "and" -> {
                     return people(people, peopleChild.getChildren1()) && people(people, peopleChild.getChildren2());
                 }
@@ -30,6 +37,10 @@ public class PeopleService {
         return false;
     }
 
+    /**
+     * Формирует критерии поиска.
+     * @return Объект класса PeopleChild.
+     */
     public PeopleChild createYslovie() {
 
         PeopleChild age1 = new PeopleChild("<", "age", "32");
@@ -50,17 +61,23 @@ public class PeopleService {
 
         PeopleChild nameWithSV = new PeopleChild("and", age, nameSum);
 
-
         return new PeopleChild("or", firstName1, nameWithSV);
-
-
     }
 
+
+    /**
+     * Получение значения полей объекта.
+     *
+     * @param s Значение operation.
+     * @param people Объект класса People.
+     *
+     * @return Значение поля объекта people.
+     */
     public String getFieldValue(String s, People people) {
 
         switch (s) {
             case "age" -> {
-                return people.getAge();
+                return String.valueOf(people.getAge());
             }
             case "firstName" -> {
                 return people.getFirstName();
