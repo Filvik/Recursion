@@ -2,20 +2,23 @@ package org.example;
 
 public enum OperationEnum {
 
-    MORE (">"),
-    LESS ("<"),
-    EQUALS ("==");
+    MORE(">"),
+    LESS("<"),
+    EQUALS("=="),
+    AND("and"),
+    OR("or");
 
     private final String value;
 
-    OperationEnum(String value){
+    OperationEnum(String value) {
         this.value = value;
     }
 
-    public static OperationEnum getOperationEnum(String value){
+    public static OperationEnum getOperationEnum(String value) {
+
         OperationEnum[] operationEnum = values();
-        for (OperationEnum operation: operationEnum){
-            if (operation.value.equals(value)){
+        for (OperationEnum operation : operationEnum) {
+            if (operation.value.equals(value)) {
                 return operation;
             }
         }

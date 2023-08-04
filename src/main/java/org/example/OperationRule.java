@@ -10,4 +10,6 @@ public class OperationRule {
             entry(OperationEnum.MORE, new ArrayList<>(List.of(FieldEnum.AGE))),
             entry(OperationEnum.LESS, new ArrayList<>(List.of(FieldEnum.AGE)))
     );
+
+    public static final List<OperationEnum> LOGIC_OPERATION = new ArrayList<>(Arrays.asList(OperationEnum.OR, OperationEnum.AND));
 }
